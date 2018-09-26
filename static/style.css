@@ -1,0 +1,94 @@
+body {
+  background: darkseagreen;
+  font-size: 1.4em;
+  font-family: monospace;
+  width: 40em;
+  margin: auto;
+}
+
+img {
+  text-align: center;
+}
+
+section {
+  background: white;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  padding: 0.4em;
+  margin: 0 0 -0.8em;
+  font-weight: normal;
+}
+
+label {
+  display: block;
+  padding: 0.4em;
+  color: gray;
+}
+
+form input[type='text'] {
+  width: 90%;
+  display: block;
+  padding: 0.4em;
+  margin-left: 0.4em;
+  font-size: 1em;
+  border: 3px solid rgb(226, 226, 226);
+  outline: none;
+  font-family: monospace;
+}
+
+form input[type='radio'] {
+  margin-left: 1.5em;
+}
+
+form input:focus {
+  border: 3px solid rgb(135, 135, 135);
+}
+
+form input[type='submit'] {
+  width: 20%;
+  padding: 0.4em;
+  margin-left: 0.4em;
+  font-size: 1em;
+  border: 3px solid rgb(226, 226, 226);
+  outline: none;
+  font-family: monospace;
+}
+
+code {
+  display: block;
+  color: gray;
+}
+
+.radio-line,
+.checkbox-line {
+  margin: 0;
+  padding: 0;
+}
+
+.radio-line label,
+.checkbox-line label {
+  display: inline-block;
+  color: black;
+}
+
+.visualization {
+  border: 1px solid gray;
+  padding: 5px;
+  display: inline-block;
+}
+
+.visualization strong {
+  display: block;
+}
+
+.visualization i {
+  font-style: normal;
+}

@@ -1,0 +1,3 @@
+flask
+markdown
+git+https://github.com/yogurt-cultures/kefir.git
