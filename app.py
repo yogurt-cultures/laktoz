@@ -99,11 +99,27 @@ BASE_TEMPLATE = '''
       <link href="static/style.css" rel="stylesheet" />
     </head>
     <body>
-    <img
-      width="200"
-      src="static/kefir.svg"
-    />
+    <a href="/">
+      <img
+        width="200"
+        src="static/kefir.svg"
+      />
+    </a>
     %(content)s
+    <section>
+    <h3>Credits</h3>
+    <ul>
+      <li>Berk Buzcu (8-bit artwork)</li>
+      <li>Serdar Açıkyol (Illustration)</li>
+      <li>Fatih Erikli (Phonological Processes, Predicate Logic)</li>
+      <li>Armagan Amcalar (Javascript Port)</li>
+      <li>Umut Karcı (Packaging and Versioning)</li>
+      <li>Kerem Bozdaş (Editing)</li>
+      <li>Edanur Yıldız (Possesive case)</li>
+    </ul>
+    <a href="https://github.com/yogurt-cultures/laktoz">https://github.com/yogurt-cultures/laktoz</a>
+    <a href="https://github.com/yogurt-cultures/kefir">https://github.com/yogurt-cultures/kefir</a>
+    </section>
     </body>
   </html>
 '''
@@ -145,7 +161,7 @@ FORM = '''
           value="%(subject)s"
         />
       </p>
-      <div>
+      <div class="cases">
         <label>Case</label>
         %(cases)s
       </div>
@@ -159,11 +175,11 @@ FORM = '''
           value="%(predicate)s"
         />
       </p>
-      <div>
+      <div class="copulas">
         <label>Copula</label>
         %(copulas)s
       </div>
-      <div>
+      <div class="whom">
         <br />
         <label>Whom?</label>
         %(whom)s
@@ -257,10 +273,7 @@ def render_copula(copula):
     'docs': docs,
     'value': copula.__name__,
     'checked': (
-      'checked' if (
-           (copula.__name__ in request.args)
-        or (copula.__name__ == 'zero' and not request.args.get('copula'))
-      ) else NOTHING
+      'checked' if copula.__name__ in request.args else NOTHING
     ),
   }
 
@@ -314,9 +327,12 @@ def render_result(args):
 
   parts = [
     ('subject', subject, 'black'),
-    (subject_case, case_processor(subject)[len(subject):], colorize(case_processor)),
-    ('predicate', predicate, 'black'),
   ]
+
+  if case_processor != nominative:
+    parts.append((subject_case, case_processor(subject)[len(subject):], colorize(case_processor)))
+  
+  parts.append(('predicate', predicate, 'black'))
 
   rendered = predicate
 
@@ -343,11 +359,12 @@ def render_result(args):
     before_render = len(rendered)
     rendered = copula(rendered, **kwargs)
 
-    parts.append((
-      copula.__name__,
-      rendered[before_render:],
-      colorize(copula)
-    ))
+    if copula != zero:
+      parts.append((
+        copula.__name__,
+        rendered[before_render:],
+        colorize(copula)
+      ))
 
   return RESULT % {
     'content': NOTHING.join(
@@ -358,7 +375,7 @@ def render_result(args):
 
 @app.route('/')
 def index():
-  cases = BREAK_LINE.join(map(render_case, CASES))
+  cases = NOTHING.join(map(render_case, CASES))
   copulas = BREAK_LINE.join(map(render_copula, COPULAS))
   whom = NOTHING.join(map(render_whom, WHOM))
 
@@ -366,11 +383,24 @@ def index():
     'cases': cases,
     'copulas': copulas,
     'whom': whom,
-    'subject': request.args.get('subject', NOTHING).replace('"', NOTHING),
-    'predicate': request.args.get('predicate', NOTHING).replace('"', NOTHING),
+    'subject': (
+      request.args
+        .get('subject', NOTHING)
+        .replace('"', NOTHING)
+    ),
+    'predicate': (
+      request.args
+        .get('predicate', NOTHING)
+        .replace('"', NOTHING)
+    ),
   }
 
-  if ('subject' in request.args or 'predicate' in request.args):
+  show_results = (
+    'subject' in request.args or
+    'predicate' in request.args
+  )
+
+  if show_results:
     result = render_result(request.args)
   else:
     result = NOTHING
@@ -381,4 +411,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-

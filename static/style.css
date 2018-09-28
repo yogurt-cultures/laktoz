@@ -92,3 +92,15 @@ code {
 .visualization i {
   font-style: normal;
 }
+
+/* .radio-line code {
+  display: none;
+} */
+
+.cases, .copulas, .whom {
+  font-size: 0.7em;
+}
+
+a {
+  color: black;
+}
