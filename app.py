@@ -99,11 +99,14 @@ BASE_TEMPLATE = '''
       <link href="static/style.css" rel="stylesheet" />
     </head>
     <body>
-    <a href="/">
+    <a href="/" class="home">
       <img
         width="200"
         src="static/kefir.svg"
       />
+      <h1>How to think in Turkic languages</h1>
+      <h2>Kefir is a turkish morphology* project</h2>
+      <p>morphology: in linguistics, the study of the forms of words, in particular inflected forms.</p>
     </a>
     %(content)s
     <section>
