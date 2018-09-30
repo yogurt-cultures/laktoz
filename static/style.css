@@ -150,3 +150,16 @@ a {
 .home {
   text-decoration: none;
 }
+
+.examples {
+  font-size: 0.7em;
+  margin: 0.7em 0 0 0.8em;
+}
+
+.examples h4 {
+  margin: 1em 0 0;
+  color: gray;
+  font-weight: normal;
+  padding: 0;
+  display: inline-block;
+}
