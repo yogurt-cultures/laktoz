@@ -156,9 +156,9 @@ FORM = '''
       <h3>Construct a sentence</h3>
       <div class="examples">
         <h4>Examples</h4>
-        <a href="http://laktoz.yogurtcultures.org/?subject=Abbas&case=dative&predicate=A%C5%9F%C4%B1k&perfective=true&whom=third_person_singular">1</a>
-        <a href="http://laktoz.yogurtcultures.org/?subject=Bah%C3%A7e&case=locative&predicate=Han%C4%B1meli&perfective=true&whom=third_person_singular">2</a>
-        <a href="http://laktoz.yogurtcultures.org/?subject=G%C3%B6rd%C3%BC%C4%9F%C3%BCn&case=dative&predicate=%C4%B0nanma&necessitative=true&whom=second_person_singular">3</a>
+        <a href="http://laktoz.yogurtcultures.org/?subject=Abbas&case=dative&predicate=Aşık&perfective=true&whom=third_person_singular">1</a>
+        <a href="http://laktoz.yogurtcultures.org/?subject=Bahçede&case=locative&predicate=Hanımeli&perfective=true&whom=third_person_singular">2</a>
+        <a href="http://laktoz.yogurtcultures.org/?subject=Gördüğün&case=dative&predicate=İnanma&necessitative=true&whom=second_person_singular">3</a>
         <a href="http://laktoz.yogurtcultures.org/?subject=Bisiklet&case=dative&predicate=Bin&progressive=true&whom=first_person_singular">4</a>
         <a href="http://laktoz.yogurtcultures.org/?subject=Araba&case=dative&predicate=Bin&perfective=true&whom=third_person_plural">5</a>
       </div>
