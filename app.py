@@ -123,6 +123,14 @@ BASE_TEMPLATE = '''
     <a href="https://github.com/yogurt-cultures/laktoz">https://github.com/yogurt-cultures/laktoz</a>
     <a href="https://github.com/yogurt-cultures/kefir">https://github.com/yogurt-cultures/kefir</a>
     </section>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96482154-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-96482154-2');
+    </script>
     </body>
   </html>
 '''
