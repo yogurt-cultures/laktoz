@@ -204,7 +204,7 @@ FORM = '''
         %(whom)s
       </div>
       <p>
-        <input type="submit" />
+        <input type="submit" value="Submit"/>
       </p>
     </form>
   </section>
